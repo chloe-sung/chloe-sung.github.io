@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Chloe arhcive</title>
+  <title>Chloe Archive</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -10,9 +10,15 @@
 
   <!-- 헤더 -->
   <header class="fade-in">
-    <div class="container">
-      <h1>Chloe Im</h1>
-      <p>my creative world!</p>
+    <div class="container header-grid">
+      <div class="header-left">
+        <h1>Chloe Archive</h1>
+        <p>Web Developer | Designer</p>
+      </div>
+      <div class="header-right">
+        <img src="images/profile.png" alt="프로필 사진" class="profile-img">
+        <p>항상 새로움을 추구합니다.</p>
+      </div>
     </div>
   </header>
 
@@ -21,8 +27,8 @@
     <div class="container">
       <h2>About Me</h2>
       <p>
-        숭선생의 취향상점!
-        음악, 책, 프로젝트, 일상 속 영감...etc
+        안녕하세요! 사용자 경험을 고려한 웹사이트 개발과 디자인을 즐기는 개발자입니다.  
+        깔끔한 UI와 직관적인 인터페이스를 만드는 것을 좋아합니다.
       </p>
     </div>
   </section>
@@ -31,17 +37,31 @@
   <section id="projects" class="fade-in">
     <div class="container">
       <h2>Projects</h2>
-      <div class="project-card">
-        <img src="images/project1.png" alt="프로젝트1" class="project-img">
-        <h3>프로젝트 A</h3>
-        <p>간단한 설명을 여기에 작성합니다.</p>
-        <a href="#">🔗 GitHub</a>
-      </div>
-      <div class="project-card">
-        <img src="images/project2.png" alt="프로젝트2" class="project-img">
-        <h3>프로젝트 B</h3>
-        <p>간단한 설명을 여기에 작성합니다.</p>
-        <a href="#">🔗 Demo</a>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="images/project1.png" alt="프로젝트1" class="project-img">
+          <h3>프로젝트 1</h3>
+        </div>
+        <div class="project-card">
+          <img src="images/project2.png" alt="프로젝트2" class="project-img">
+          <h3>프로젝트 2</h3>
+        </div>
+        <div class="project-card">
+          <img src="images/project3.png" alt="프로젝트3" class="project-img">
+          <h3>프로젝트 3</h3>
+        </div>
+        <div class="project-card">
+          <img src="images/project4.png" alt="프로젝트4" class="project-img">
+          <h3>프로젝트 4</h3>
+        </div>
+        <div class="project-card">
+          <img src="images/project5.png" alt="프로젝트5" class="project-img">
+          <h3>프로젝트 5</h3>
+        </div>
+        <div class="project-card">
+          <img src="images/project6.png" alt="프로젝트6" class="project-img">
+          <h3>프로젝트 6</h3>
+        </div>
       </div>
     </div>
   </section>
@@ -58,32 +78,21 @@
 
   <!-- 푸터 -->
   <footer class="fade-in">
-    <p>&copy; 2025 임예승. All rights reserved.</p>
+    <p>&copy; 2025 Chloe Archive. All rights reserved.</p>
   </footer>
 
   <!-- 스크롤 애니메이션 -->
   <script>
     const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer){
       entries.forEach(entry => {
-        if(!entry.isIntersecting){
-          return;
-        } else {
-          entry.target.classList.add('appear');
-          appearOnScroll.unobserve(entry.target);
-        }
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
       });
     }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
+    faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 
 </body>
