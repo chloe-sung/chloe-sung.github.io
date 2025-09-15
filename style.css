@@ -85,9 +85,11 @@ h2 {
 /* 프로젝트 그리드 */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개 고정 */
+  grid-auto-rows: auto;                  /* 자동으로 다음 줄 생성 */
+  gap: 1.5rem;                           /* 카드 간격 */
 }
+
 
 .project-card {
   background: white;
